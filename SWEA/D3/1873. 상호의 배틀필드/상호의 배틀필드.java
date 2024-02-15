@@ -160,12 +160,13 @@ public class Solution {
 	}
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
-		
+		//System.setIn(new FileInputStream("res/input.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		T = Integer.parseInt(br.readLine());
 		for(int t=0; t<T; t++) {
-			System.out.print("#"+(t+1)+" ");
+			sb.append('#').append(t+1).append(" ");
+			//System.out.print("#"+(t+1)+" ");
 			String []buffer = br.readLine().split(" ");
 			H = Integer.parseInt(buffer[0]);
 			W = Integer.parseInt(buffer[1]);
@@ -222,13 +223,14 @@ public class Solution {
 				}
 			}//cmds for end
 			for(char []ca:map) {
-				for(char c:ca)
-					System.out.print(c);
-				System.out.println();
-			}
+                for(char c:ca)
+                	sb.append(c);
+                sb.append('\n');
+            }
+			
 		}//test case for end
 
-
+		System.out.println(sb);
 		
 	}//main end
 
