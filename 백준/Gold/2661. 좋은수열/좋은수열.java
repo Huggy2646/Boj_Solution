@@ -42,18 +42,20 @@ public class Main {
 			int buffer=end;
 			int count_b=0;
 			for(int i=0; i<count; i++) {// 비교할 크기만큼 비교를 해야됨
-				//비교하는 대상이 하나씩 줄어야 됨
+				
 				if(buffer-count < 0) {
 					break;
 				}
 				//System.out.println(buffer+"..."+(buffer-count));
+				//비교하는 위치는 비교할 크기만큼 비례
 				if(result[buffer]==result[buffer-count]) {
-					
+					//같은 count
 					count_b++;
 				}
 				
-				buffer--;
+				buffer--;//비교하는 대상이 하나씩 왼쪽으로 ㄱㄱ
 			}
+			//비교하는 크기와 비교했을때 같은 숫자의 count가 같으면 같은 순서를 가진 연속된부분 수열
 			if(count_b==count)
 				return true;
 
