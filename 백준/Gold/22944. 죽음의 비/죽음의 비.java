@@ -77,6 +77,7 @@ public class Main {
 		    					continue;
 		    				}
 		    				// 갔을 때 예전에 방문했었을 때 체력+우산 내구력보다 높으면 더 멀리 갈 수 있으므로 queue에 삽입
+						// 원래 visited를 그냥 단순 방문으로 했지만 계속 틀렸음
 		    				if(visited[nr][nc]<H_-1) {
 		    					// update
 		    					visited[nr][nc]=H_-1;
