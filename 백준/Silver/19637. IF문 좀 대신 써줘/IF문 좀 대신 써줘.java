@@ -62,8 +62,8 @@ public class Solution {
 					else
 						// 아니라면 초과 이하를 판단해야됨
 						// 만약에 mid에 있는 값이 number랑 같지 않고(위에서 걸렀음) 작으면
-						// mid와 mid+1의 값을 가짐 그래서 mid+1의 칭호를 가짐
-						// mid가 number보다 크면 mid-1 mid의 값임 그래서 mid의 칭호를 가짐
+						// mid ~ mid+1의 값을 가짐 그래서 mid+1의 칭호를 가짐
+						// mid가 number보다 크면 mid-1 ~ mid의 값임 그래서 mid의 칭호를 가짐
 						buffer = list.get(mid).power < number ? list.get(mid+1).name:list.get(mid).name;
 					sb.append(buffer).append('\n');
 					break;
