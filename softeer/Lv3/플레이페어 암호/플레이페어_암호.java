@@ -12,12 +12,15 @@ public class Main {
         String key = br.readLine();
         int same = 0;
         int index = 0;
+        //row의 길이가 5이니깐 일차원 배열 index/5는 row값이 되고 , index%5는 column값이 된다.
         for(int k=0; k<key.length(); k++){
+	          // same을 계산하는 이유는 같은 알파벳은 빠지기 때문에 index들이 빠진만큼 앞으로 땡겨짐
             int row = (k-same)/5;
             int col = (k-same)%5;
             if(!visited[key.charAt(k)-'A']){
                 visited[key.charAt(k)-'A']=true;
                 grid[row][col]=key.charAt(k);
+                //key를 다 넣고 다시 나머지 알파벳을 넣을때 사용할 index값
                 index++;
             }
             else{
@@ -25,6 +28,7 @@ public class Main {
             }
                 
         }
+        //남은 알파벳 넣기
         for(int i=0; i<alpha.length; i++){
             if(!visited[i] && alpha[i]!='J'){
                 visited[i]=true;
@@ -37,9 +41,11 @@ public class Main {
             
 
         }
-
+				
         List <String[]> list = new ArrayList<>();
+        // message를 2개의 쌍으로 만들 때 하나씩 빼기 위해  Queue를 사용
         Queue<String> queue =new ArrayDeque<>(Arrays.asList(message.split("")));
+        // 쌍이 안맞아서 하나 남는 경우와 모든것이 쌍으로 만들어 질때 까지 반복
         while(queue.size()!=1 && queue.size()!=0){
             String front = queue.poll();
             if(!front.equals(queue.peek())){
@@ -57,8 +63,9 @@ public class Main {
             list.add(new String[]{queue.poll(),"X"});
         }
 
-
+				//grid에서 2개의 쌍들의 위치를 찾기 위한 코드
         for(String [] strs : list){
+		        //찾은 인덱스 값들이 저장됨
             int[][] find_index=new int[2][2];
             for(int k=0;k<2; k++){
                 for(int i=0; i<5; i++){
@@ -71,10 +78,12 @@ public class Main {
                     }
                 }
             }
+            // 움직였을 때의 값들
             int move_first_row;
             int move_first_col;
             int move_second_row;
             int move_second_col;
+            
             //같은 row?
             if(find_index[0][0]==find_index[1][0]){
                 move_first_row = find_index[0][0];
@@ -120,12 +129,7 @@ public class Main {
             }
 
         }
-  
-    
         System.out.println(result.toString());
-        
-        
-
-        
+       
     }
 }
