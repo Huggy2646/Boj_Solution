@@ -67,3 +67,12 @@
 
  <p><strong>recommend 명령이 주어질 </strong>때마다 문제 번호를 한 줄씩 출력한다. 최소 한번의 recommend 명령어가 들어온다.</p>
 
+### 반례
+2
+1 2
+2 1
+4
+solved 1
+add 1 1
+recommend 1
+recommend -1
