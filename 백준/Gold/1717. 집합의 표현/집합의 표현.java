@@ -18,9 +18,7 @@ public class Main {
 		parents = new int[N+1];
 		
 
-		for(int i=0; i<N+1; i++) {
-			parents[i]=i;
-		}
+		Arrays.fill(parents,-1);
 		
 		
 		for(int m=0; m<M; m++) {
@@ -46,7 +44,7 @@ public class Main {
 
 	//find root
 	private static int find(int num) {
-		if(parents[num]==num)
+		if(parents[num]==-1)
 			return num;
 		return parents[num]=find(parents[num]);
 		
