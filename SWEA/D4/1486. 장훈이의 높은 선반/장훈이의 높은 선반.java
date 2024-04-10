@@ -6,6 +6,12 @@ import java.util.StringTokenizer;
 
 public class Solution {
 
+	private static int gapMin;
+	private static int B;
+	private static int N;
+	private static int[] emps;
+
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -14,17 +20,21 @@ public class Solution {
 		for(int t=0; t<T; t++) {
 			String [] NB = br.readLine().split(" ");
 			StringTokenizer st;
-			int N = Integer.parseInt(NB[0]);
-			int B = Integer.parseInt(NB[1]);
-			int [] emps = new int[N];
+			N = Integer.parseInt(NB[0]);
+			B = Integer.parseInt(NB[1]);
+			emps = new int[N];
 			st = new StringTokenizer(br.readLine()," ");
 			for(int n=0; n<N; n++) {
 				emps[n]=Integer.parseInt(st.nextToken());
 			}
 			int min = Integer.MAX_VALUE;
+			
+			
+			
+			
 			for(int n=0; n<(1<<N); n++) {
 				int result = 0;
-				for(int i=0; i<Integer.toBinaryString(n).length(); i++) {
+				for(int i=0; i<N; i++) {
 					if((n & (1<<i))!=0) {
 
 						result+=emps[i];
@@ -42,5 +52,8 @@ public class Solution {
 		}
 		System.out.println(sb);
 	}
+	
+	
+
 
 }
