@@ -12,13 +12,14 @@ public class Solution {
 	private static int max;
 	private static int[][] direc = {{-1,0},{1,0},{0,-1},{0,1}};
 	private static int result;
-	
+	private static int len;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer st = null;
 		int T=Integer.parseInt(br.readLine());
 		for(int t=0; t<T; t++) {
+			len=0;
 			max = Integer.MIN_VALUE;
 			result = Integer.MAX_VALUE;
 			process = new ArrayList<>();
@@ -43,14 +44,14 @@ public class Solution {
 	private static void dfs(int level, int cnt) {
 		if(level==process.size()) {
 			if(max<=cnt) {
-				int count = counting();
+//				int count = counting();
 				if(max<cnt) {
 					max=cnt;
-					result = count;
+					result = len;
 				}
 	
 				else
-					result =Integer.min(result, counting());
+					result =Integer.min(result, len);
 			}
 			return;
 		}
@@ -62,9 +63,11 @@ public class Solution {
 			int r = position[0];
 			int c = position[1];
 			boolean flag=false;
+			
 			for(int d=0; d<4; d++) {
 				int nr = r;
 				int nc = c;
+				
 				while(true) {
 					nr += direc[d][0];
 					nc += direc[d][1];
@@ -75,6 +78,7 @@ public class Solution {
 						break;
 					}
 					grid[nr][nc]=2;
+					len++;
 				}
 				if(flag) {
 					//복귀
@@ -92,16 +96,16 @@ public class Solution {
 		}
 		
 	}// dfs end
-	private static int counting() {
-		int cnt=0;
-		for(int r=0; r<N; r++) {
-			for(int c=0; c<N; c++) {
-				if(grid[r][c]==2)
-					cnt++;
-			}
-		}
-		return cnt;
-	}
+//	private static int counting() {
+//		int cnt=0;
+//		for(int r=0; r<N; r++) {
+//			for(int c=0; c<N; c++) {
+//				if(grid[r][c]==2)
+//					cnt++;
+//			}
+//		}
+//		return cnt;
+//	}
 	private static void back(int[] d, int r, int c) {
 		while(true) {
 			r += d[0]*(-1);
@@ -110,6 +114,7 @@ public class Solution {
 				return;
 			}
 			grid[r][c]=0;
+			len--;
 
 		}
 		
