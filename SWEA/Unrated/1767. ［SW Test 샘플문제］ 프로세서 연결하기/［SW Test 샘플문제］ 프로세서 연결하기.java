@@ -28,8 +28,10 @@ public class Solution {
 				st=new StringTokenizer(br.readLine()," ");
 				for(int c=0; c<N; c++) {
 					grid[r][c]=Integer.parseInt(st.nextToken());
-					if(grid[r][c]==1)
+					if(grid[r][c]==1 && (r!=0 && r!=N-1 && c!=0 && c!=N-1)) {
 						process.add(new int[] {r,c});
+					}
+						
 				}
 			}
 			dfs(0,0);
