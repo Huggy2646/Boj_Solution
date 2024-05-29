@@ -1,8 +1,9 @@
 import java.util.*;
 
 class Solution {
-    static String[] result;
-    static Set<String> resultSet = new HashSet<>();
+    // static String[] result;
+    static int result;
+    static Set<Integer> resultSet = new HashSet<>();
     static boolean [] visited;
     static boolean [] bannedVisited;
     static String[] user_id;
@@ -12,7 +13,7 @@ class Solution {
     public int solution(String[] user_id_input, String[] banned_id_input) {
         user_id = user_id_input.clone();
         banned_id = banned_id_input.clone();
-        result = new String[banned_id.length];
+        // result = new String[banned_id.length];
         visited = new boolean[user_id.length];
         bannedVisited = new boolean[banned_id.length];
         
@@ -21,18 +22,20 @@ class Solution {
         return resultSet.size();
     }
     public void permu(int index){
-        if(index==result.length){
-            String []resultBuffer = result.clone();
-            Arrays.sort(resultBuffer);
-            resultSet.add(Arrays.toString(resultBuffer));
+        if(index==banned_id.length){
+            // String []resultBuffer = result.clone();
+            // Arrays.sort(resultBuffer);
+            resultSet.add(result);
         }
         for(int i=0; i<visited.length; i++){
             if(!visited[i]){
                 String id = user_id[i];
                 if(check(id)){
                     visited[i]=true;
-                    result[index]=id;
+                    // result[index]=id;
+                    result|=(1<<i);
                     permu(index+1);
+                    result&=(~(1<<i));
                     visited[i]=false;
                     bannedVisited[stack.pop()]=false;
                 }
