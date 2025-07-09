@@ -4,7 +4,6 @@ import java.io.*;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		if(n == 0) {
@@ -14,10 +13,10 @@ public class Main {
 			System.out.println(br.readLine());
 			return;
 		} else if(n==2) {
-			System.out.println(Math.round(Integer.parseInt(br.readLine())+Integer.parseInt(br.readLine()))/2);
+			System.out.println(Math.round(Integer.parseInt(br.readLine())+Integer.parseInt(br.readLine()))/2.0);
 			return;
 		}else if(n==3) {
-			System.out.println(Math.round(Integer.parseInt(br.readLine())+Integer.parseInt(br.readLine())+Integer.parseInt(br.readLine()))/3);
+			System.out.println(Math.round(Integer.parseInt(br.readLine())+Integer.parseInt(br.readLine())+Integer.parseInt(br.readLine()))/3.0);
 			return;
 			
 		}
