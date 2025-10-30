@@ -1,6 +1,6 @@
 # [level 4] 년, 월, 성별 별 상품 구매 회원 수 구하기 - 131532 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131532) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131532#qna) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2025년 09월 27일 22:36:43
+2025년 10월 30일 21:22:58
 
 ### 문제 설명
 
